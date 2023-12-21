@@ -49,12 +49,13 @@ public class CylinderMovement : MonoBehaviour
         // se o botão apertado for arrow left ou arrow right, o objeto gira em torno do eixo z
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
         {
+            Debug.Log("ok");
             transform.Rotate(0, 0, -Input.GetAxis("Horizontal") * speed * Time.deltaTime);
         }
         // se o botão apertado for arrow up ou arrow down, o objeto pai gira em torno do eixo z
         else if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
         {
-            transform.parent.Rotate(0, 0, -Input.GetAxis("Vertical") * speed * Time.deltaTime);
+            cylinder.transform.Rotate(0, 0, -Input.GetAxis("Vertical") * speed * Time.deltaTime);
         }
 
 

@@ -5,7 +5,7 @@ using Cinemachine;
 
 public class Movement : MonoBehaviour
 {
-
+    
     public GameObject cylinder;
     private float minFov = 35f;
     private float maxFov = 100f;
@@ -32,9 +32,12 @@ public class Movement : MonoBehaviour
     // Zooms the camera in and out based on the mouse scroll wheel
     private void ZoomCamera()
     {
+        
         float fov = Camera.main.fieldOfView;
         fov += Input.GetAxis("Mouse ScrollWheel") * -sensitivity;
         fov = Mathf.Clamp(fov, minFov, maxFov);
         Camera.main.fieldOfView = fov;
     }
+
+     
 }
