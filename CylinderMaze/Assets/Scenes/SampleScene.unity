@@ -136,7 +136,6 @@ GameObject:
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
-  - component: {fileID: 330585549}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -296,19 +295,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &330585549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5ce3ec12c313974da4f7940d6a73e2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cylinder: {fileID: 386472352}
 --- !u!1 &386472352 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f78605626ba6b174aa6269487fd55e0e,
@@ -321,6 +307,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1082809066}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &386472356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386472352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f9c3d1d0686a340bd32e7b3ba9177e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cylinder: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,6 +669,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f78605626ba6b174aa6269487fd55e0e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Cylinder
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -677,7 +681,11 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 421376601}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f78605626ba6b174aa6269487fd55e0e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 386472356}
   m_SourcePrefab: {fileID: 100100000, guid: f78605626ba6b174aa6269487fd55e0e, type: 3}
 --- !u!1 &1331469070
 GameObject:
