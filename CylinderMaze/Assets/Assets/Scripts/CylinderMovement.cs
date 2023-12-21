@@ -54,7 +54,7 @@ public class CylinderMovement : MonoBehaviour
         // se o botão apertado for arrow up ou arrow down, o objeto pai gira em torno do eixo z
         else if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
         {
-            transform.parent.Rotate(0, 0, Input.GetAxis("Vertical") * speed * Time.deltaTime);
+            transform.parent.Rotate(0, 0, -Input.GetAxis("Vertical") * speed * Time.deltaTime);
         }
 
 
