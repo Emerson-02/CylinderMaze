@@ -123,6 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 --- !u!1 &88031221
 GameObject:
@@ -963,6 +964,9 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &968252857
+=======
+--- !u!1001 &779783490
+>>>>>>> 43c1f001de771fa50fe87cfd5c943fbaba01eb09
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1038,6 +1042,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 968252859}
   m_SourcePrefab: {fileID: 100100000, guid: 245071cef490c6e46abc84ab1604189c, type: 3}
+<<<<<<< HEAD
 --- !u!1 &968252858 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 245071cef490c6e46abc84ab1604189c,
@@ -1293,13 +1298,19 @@ Transform:
   - {fileID: 781977711}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> 43c1f001de771fa50fe87cfd5c943fbaba01eb09
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+<<<<<<< HEAD
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 1331469071}
   - {fileID: 968252857}
   - {fileID: 88031226}
+=======
+  - {fileID: 779783490}
+>>>>>>> 43c1f001de771fa50fe87cfd5c943fbaba01eb09
