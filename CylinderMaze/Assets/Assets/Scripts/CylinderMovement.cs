@@ -6,7 +6,21 @@ public class CylinderMovement : MonoBehaviour
 {
     private float speed = 50.0f;
     private Vector3 lastPosition;
-    public GameObject cylinder;
+    public Transform cylinder;
+    public Transform ball;
+    public Vector3 ballPosition;
+    public float rotationSpeed = 100f;
+    public float smoothTime = 0.3F;
+    private float yVelocity = 0.0F;
+    public Transform camera;
+    public Transform Marker;
+
+
+    void Start()
+    {
+        // Armazene a posição original da bola
+        ballPosition = ball.position;
+    }
 
     // Update is called once per frame
     void Update()
@@ -46,17 +60,26 @@ public class CylinderMovement : MonoBehaviour
         // }
 
 
+
+
         // se o botão apertado for arrow left ou arrow right, o objeto gira em torno do eixo z
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
         {
-            Debug.Log("ok");
-            transform.Rotate(0, 0, -Input.GetAxis("Horizontal") * speed * Time.deltaTime);
+            transform.Rotate(0, -Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0);
+
+            Marker.Rotate(0, Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0);
         }
         // se o botão apertado for arrow up ou arrow down, o objeto pai gira em torno do eixo z
         else if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
         {
-            cylinder.transform.Rotate(0, 0, -Input.GetAxis("Vertical") * speed * Time.deltaTime);
+            transform.parent.Rotate(0, 0, -Input.GetAxis("Vertical") * speed * Time.deltaTime);
         }
+        
+
+
+        
+
+
 
 
     }
