@@ -23,11 +23,19 @@ public class Marker : MonoBehaviour
     {
         if (!isBallInMarker)
         {
-            // gire o cilindro em torno do eixo y na direção em que a bola saiu do marcador
-            Cylinder.Rotate(0, speed * Time.deltaTime * exitDirection.x, 0);
-            
-            // o pai do marcador gira em torno do eixo y a uma velocidade constante contrária à do cilindro
-            transform.parent.Rotate(0, -speed * Time.deltaTime * exitDirection.x, 0);
+            // verifica se o cilindro está de cabeça para baixo
+            // if (Cylinder.rotation.eulerAngles.x > 90 && Cylinder.rotation.eulerAngles.x < 270)
+            // {
+            //     // gire o cilindro na direção oposta
+            //     Cylinder.Rotate(0, -speed * Time.deltaTime * Mathf.Sign(exitDirection.x), 0);
+            //     transform.parent.Rotate(0, speed * Time.deltaTime * Mathf.Sign(exitDirection.x), 0);
+            // }
+            // else
+            // {
+            //     // gire o cilindro na direção normal
+            //     Cylinder.Rotate(0, speed * Time.deltaTime * Mathf.Sign(exitDirection.x), 0);
+            //     transform.parent.Rotate(0, -speed * Time.deltaTime * Mathf.Sign(exitDirection.x), 0);
+            // }
         }
     }
 

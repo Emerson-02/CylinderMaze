@@ -8,58 +8,41 @@ public class CylinderMovement : MonoBehaviour
     private Vector3 lastPosition;
     public Transform cylinder;
     public Transform ball;
-    public Vector3 ballPosition;
+    public Transform ballPosition;
     public float rotationSpeed = 100f;
     public float smoothTime = 0.3F;
     private float yVelocity = 0.0F;
     public Transform camera;
     public Transform Marker;
+    public Transform markerBall;
+    public Transform yPosBall;
+    public Vector3 frontCylinder;
 
 
     void Start()
     {
         // Armazene a posição original da bola
-        ballPosition = ball.position;
+        // ballPosition = ball.position;
+
+        // // Calcular a distância x e z entre a bola e o yPosBall
+        // float distanceX = ball.position.x - yPosBall.position.x;
+        // float distanceZ = ball.position.z - yPosBall.position.z;
+
+        // frontCylinder = new Vector3(distanceX, 0, distanceZ);
     }
 
     // Update is called once per frame
     void Update()
     {
-        // eixo de rotação x e z do objeto recebem 0 para que o objeto não se mova
-        //transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 
-        // eixo de rotação x e y do objeto pai recebem 0 para que o objeto não se mova
-        //transform.parent.eulerAngles = new Vector3(0, 0, transform.parent.eulerAngles.z);
+        
+        ballPosition.position = new Vector3(ball.position.x, ball.position.y, ball.position.z);
 
-        // if (Input.touchCount > 0)
-        // {
-        //     Touch touch = Input.GetTouch(0);
-
-        //     if (touch.phase == TouchPhase.Began)
-        //     {
-        //         lastPosition = touch.position;
-        //     }
-        //     else if (touch.phase == TouchPhase.Moved)
-        //     {
-        //         Vector3 touchPosition3D = new Vector3(touch.position.x, touch.position.y, 0);
-        //         Vector3 delta = touchPosition3D - lastPosition;
-
-        //         // se o movimento for na horizontal, o objeto gira em torno do eixo y
-        //         if (Mathf.Abs(delta.x) > Mathf.Abs(delta.y))
-        //         {
-        //             transform.Rotate(0, -delta.x * speed * Time.deltaTime, 0);
-        //         }
-        //         // se o movimento for na vertical, o objeto pai gira em torno do eixo z
-        //         else
-        //         {
-        //             transform.parent.Rotate(0, 0, delta.y * speed * Time.deltaTime);
-        //         }
-
-        //         lastPosition = touchPosition3D;
-        //     }
-        // }
+        // y do yPosBall acompanha o y da bola
+        //yPosBall.position = new Vector3(ball.position.x, ball.position.y, ball.position.z);
 
 
+        
 
 
         // se o botão apertado for arrow left ou arrow right, o objeto gira em torno do eixo z
@@ -68,19 +51,63 @@ public class CylinderMovement : MonoBehaviour
             transform.Rotate(0, -Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0);
 
             Marker.Rotate(0, Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0);
+
+    
         }
         // se o botão apertado for arrow up ou arrow down, o objeto pai gira em torno do eixo z
         else if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
         {
             transform.parent.Rotate(0, 0, -Input.GetAxis("Vertical") * speed * Time.deltaTime);
+
+            
         }
-        
 
 
         
 
 
 
+        
+        // // Calcular a distância x e z entre a bola e o yPosBall
+        // float distanceX = ball.position.x - yPosBall.position.x;
+        // float distanceZ = ball.position.z - yPosBall.position.z;
 
+        // // bota os valores em um vetor
+        // Vector3 distance = new Vector3(distanceX, 0, distanceZ);
+
+        // // imprime da distância
+        // Debug.Log(distance);
+
+
+        // // Calcular os vetores em relação à posição do cilindro
+        // Vector3 frontCylinderRelativeToCylinder = new Vector3(frontCylinder.x, 0, frontCylinder.z) - new Vector3(yPosBall.position.x, 0, yPosBall.position.z);
+        // Vector3 distanceRelativeToCylinder = new Vector3(distance.x, 0, distance.z) - new Vector3(yPosBall.position.x, 0, yPosBall.position.z);
+
+        // // Calcular o ângulo entre os dois vetores em graus
+        // float angleInDegrees = Vector3.Angle(frontCylinderRelativeToCylinder, distanceRelativeToCylinder);
+
+        // // Calcular o raio como a distância entre a posição do cilindro e o ponto representado pelo vetor distance
+        // float radius = distanceRelativeToCylinder.magnitude;
+
+        // // Calcular o arco
+        // float arc = angleInDegrees * radius;
+
+        // // Imprimir o arco
+        // Debug.Log("Arco: " + arc);
+
+
+
+        // TODO: fazer o y do yPosBall acompanhar o y da bola
+
+
+
+
+
+    }
+
+
+    void LateUpdate()
+    {
+        yPosBall.position = new Vector3(ballPosition.position.x - ballPosition.position.x, ballPosition.position.y, ballPosition.position.z - ballPosition.position.z);
     }
 }
